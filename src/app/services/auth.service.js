@@ -2,7 +2,7 @@ import { auth } from "../utils/firebase";
 
 const register = async (username, email, password) => {
    const response = await auth.createUserWithEmailAndPassword(email, password);
-   console.log(response);
+   //console.log(response);
    if (response.user) {
       localStorage.setItem("user", JSON.stringify(response.user));
       return response.user;
@@ -14,7 +14,7 @@ const register = async (username, email, password) => {
 
 const login = async (email, password) => {
    const response = await auth.signInWithEmailAndPassword(email, password);
-   console.log(response.user.email);
+   //console.log(response.user.email);
    if (response.user) {
       localStorage.setItem("user", JSON.stringify(response.user));
       return response.user;
@@ -28,7 +28,7 @@ const logout = async () => {
 
    try {
       const response = await auth.signOut();
-      console.log(response);
+      //console.log(response);
    } catch (error) {
       console.log(error);
    }

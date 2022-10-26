@@ -35,7 +35,7 @@ export default function TopNews() {
       (async () => {
          try {
             const response = await ArticleService.getNewsCnn()
-            console.log(response.data.data);
+            //console.log(response.data.data);
             setArticles(response.data.data)
          } catch (error) {
             console.log(error);
