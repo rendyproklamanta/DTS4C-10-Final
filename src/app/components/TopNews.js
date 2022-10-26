@@ -48,7 +48,7 @@ export default function TopNews() {
       <OwlCarousel className="py-4 position-relative" {...options3}>
          {
             articles.length ?
-               articles.slice(0, 5).map((article, i) => (
+               articles.slice(0, 6).map((article, i) => (
                   <Article article={article} key={i} />
                )) : <SkeletonHolder />
          }
