@@ -8,13 +8,16 @@ import 'react-loading-skeleton/dist/skeleton.css'
 const SkeletonHolder = () => {
    return (
       <>
-         <div className="col-4">
+         <div className="col-md-3 mb-3">
             <Skeleton count={2} width="100%" height='200px' baseColor='#eeacac' />
          </div>
-         <div className="col-4">
+         <div className="col-md-3 mb-3">
             <Skeleton count={2} width="100%" height='200px' baseColor='#eeacac' />
          </div>
-         <div className="col-4">
+         <div className="col-md-3 mb-3">
+            <Skeleton count={2} width="100%" height='200px' baseColor='#eeacac' />
+         </div>
+         <div className="col-md-3 mb-3">
             <Skeleton count={2} width="100%" height='200px' baseColor='#eeacac' />
          </div>
       </>
@@ -48,7 +51,7 @@ export default function ArticleCategory() {
       <div className="row mt-4">
          <div className="col-12">
             <div className="d-flex align-items-center justify-content-between bg-light py-2 px-4 mb-3">
-               <h3 className="m-0">Total Result Found : {articles.length}</h3>
+               <h3 className="m-0">Category : {query} | Total Result Found : {articles.length}</h3>
             </div>
          </div>
          {
