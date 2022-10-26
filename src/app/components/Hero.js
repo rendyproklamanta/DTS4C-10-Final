@@ -26,7 +26,7 @@ const Article = ({ article }) => {
             <strong className="mb-1 text-danger">{article.categories}</strong>
             <Link to="/detail" className="h2 m-0 text-white font-weight-bold text-break text-break-line-2" href>{article.title}</Link>
          </div>
-      </div >
+      </div>
    )
 }
 
@@ -47,16 +47,19 @@ export default function Hero() {
       })();
    }, [])
 
+
+
    return (
       <Row className='pt-3 pb-4'>
          <div className="col-lg-8 mb-3">
             <OwlCarousel className="position-relative" {...options1}>
-               {
-                  articles.length ?
-                     articles.slice(0, 3).map((article, i) => (
-                        <Article article={article} key={i} />
-                     )) : <SkeletonHolder />
-               }
+               <div className="position-relative overflow-hidden" style={{ height: 435 }}>
+                  <img className="img-fluid h-100" src="https://static.republika.co.id/uploads/images/detailnews/tim-terpadu-dinkes-kabupaten-semarang-melakukan-monitoring-peredaran-obat_221026180351-654.jpg" style={{ objectFit: 'cover' }} alt="" />
+                  <div className="overlay">
+                     <strong className="mb-1 text-danger">Categ</strong>
+                     <Link to="/detail" className="h2 m-0 text-white font-weight-bold text-break text-break-line-2" href>Judul</Link>
+                  </div>
+               </div>
             </OwlCarousel>
          </div>
 
