@@ -46,8 +46,6 @@ export default function Hero() {
       })();
    }, [])
 
-   console.log('articles:', articles);
-
    return (
       <Row className='pt-3 pb-4'>
          <div className="col-lg-8 mb-3">
