@@ -15,7 +15,7 @@ const SkeletonHolder = () => {
 const Article = ({ article }) => {
    return (
       <div className="d-flex mb-3">
-         <img src={article.image.small} alt={article.title} style={{ width: 100, height: 100, objectFit: 'cover' }} />
+         <img src={article.image.small} alt="img" style={{ width: 100, height: 100, objectFit: 'cover' }} />
          <div className="w-100 d-flex flex-column justify-content-center bg-light px-3" style={{ height: 100 }}>
             <div className="mb-1" style={{ fontSize: 13 }}>
                <strong>{article.categories}</strong>

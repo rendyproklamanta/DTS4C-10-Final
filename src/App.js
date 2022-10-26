@@ -33,7 +33,7 @@ const App = () => {
                      <Route path="/register" element={<Register />} />
                      <Route path="/profile" element={<Profile />} />
                      <Route path="/dashboard" element={<Dashboard />} />
-                     <Route path="/detail" element={<ArticleDetail />} />
+                     <Route path="/detail/:article" element={<ArticleDetail />} />
                      <Route path="/search" element={<ArticleList />} />
                      <Route path="/category" element={<ArticleCategory />} />
                      <Route path="*" element={<h1 style={{ textAlign: 'center', marginTop: 200 }}>404 Not Found</h1>} />

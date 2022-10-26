@@ -27,7 +27,7 @@ const logout = async () => {
    localStorage.removeItem("user");
 
    try {
-      const response = await auth.signOut();
+      await auth.signOut();
       //console.log(response);
    } catch (error) {
       console.log(error);

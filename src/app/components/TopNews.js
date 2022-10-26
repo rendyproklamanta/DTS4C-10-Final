@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
 const SkeletonHolder = () => {
    return (
       <>
-         <div className='row mt-4'>
+         <div className='row my-4'>
             <div className='col-lg-4'>
                <Skeleton count={1} width="100%" height='75px' baseColor='#eeacac' />
             </div>
@@ -27,11 +27,14 @@ const SkeletonHolder = () => {
 }
 
 const Article = ({ article }) => {
+
+   const detail = '/detail/' + article.title;
+
    return (
       <div className="d-flex">
          <img src={article.image.small} style={{ width: 80, height: 80, objectFit: 'cover' }} alt={article.title} />
          <div className="d-flex align-items-center bg-light px-3" style={{ height: 80 }}>
-            <Link to="/detail" className="text-secondary font-weight-semi-bold text-break text-break-line-2" href>{article.title}</Link>
+            <Link to={detail} className="text-secondary font-weight-semi-bold text-break text-break-line-2" href>{article.title}</Link>
          </div>
       </div>
    )

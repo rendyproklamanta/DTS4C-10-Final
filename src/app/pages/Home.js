@@ -1,6 +1,5 @@
 import React from 'react'
 import Hero from '../components/Hero';
-import IconFavorite from '../components/IconFavorite';
 import Latest from '../components/Latest';
 import Newsletter from '../components/Newsletter';
 import SocialMedia from '../components/SocialMedia';

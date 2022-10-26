@@ -1,17 +1,19 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { setMessage } from "./message";
+import ArticleService from "../services/article.service";
 
-import AuthService from "../services/auth.service";
+const article = JSON.parse(localStorage.getItem("article"));
 
-const user = JSON.parse(localStorage.getItem("user"));
-
-export const register = createAsyncThunk(
-   "auth/register",
-   async ({ username, email, password }, thunkAPI) => {
+export const news = createAsyncThunk(
+   "news/get",
+   async (thunkAPI) => {
       try {
-         const response = await AuthService.register(username, email, password);
-         thunkAPI.dispatch(setMessage(response.email));
-         return response.user;
+         const republika = await ArticleService.getNewsRepublika();
+         const okezone = await ArticleService.getNewsRepublika();
+         const cnn = await ArticleService.getNewsCnn();
+         const cnbc = await ArticleService.getNewsCnbc();
+         const suara = await ArticleService.getNewsSuara();
+         return { article: [...republika, ...okezone, ...cnn, ...cnbc, ...suara] };
       } catch (error) {
          const message =
             (error.response &&
@@ -25,57 +27,20 @@ export const register = createAsyncThunk(
    }
 );
 
-export const login = createAsyncThunk(
-   "auth/login",
-   async ({ email, password }, thunkAPI) => {
-      try {
-         const data = await AuthService.login(email, password);
-         return { user: data };
-      } catch (error) {
-         const message =
-            (error.response &&
-               error.response.data &&
-               error.response.data.message) ||
-            error.message ||
-            error.toString();
-         thunkAPI.dispatch(setMessage(message));
-         return thunkAPI.rejectWithValue();
-      }
-   }
-);
+const initialState = article ? { article } : { article: null };
 
-export const logout = createAsyncThunk(
-   "auth/logout",
-   async () => {
-      await AuthService.logout();
-   });
-
-const initialState = user ? { isLoggedIn: true, user } : { isLoggedIn: false, user: null };
-
-const authSlice = createSlice({
-   name: "auth",
+const articleSlice = createSlice({
+   name: "article",
    initialState,
    extraReducers: {
-      [register.fulfilled]: (state, action) => {
-         state.isLoggedIn = false;
+      [news.fulfilled]: (state, action) => {
+         state.article = action.payload.article;
       },
-      [register.rejected]: (state, action) => {
-         state.isLoggedIn = false;
-      },
-      [login.fulfilled]: (state, action) => {
-         state.isLoggedIn = true;
-         state.user = action.payload.user;
-      },
-      [login.rejected]: (state, action) => {
-         state.isLoggedIn = false;
-         state.user = null;
-      },
-      [logout.fulfilled]: (state, action) => {
-         state.isLoggedIn = false;
-         state.user = null;
+      [news.rejected]: (state, action) => {
+         state.article = null;
       },
    },
 });
 
-const { reducer } = authSlice;
+const { reducer } = articleSlice;
 export default reducer;

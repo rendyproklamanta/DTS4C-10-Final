@@ -1,10 +1,10 @@
 import axios from "axios";
 
 const API_KEY_NEWSAPI = process.env.REACT_APP_NEWSAPI;
-const API_KEY_MEDIASTACK = process.env.REACT_APP_MEDIASTACK;
+// const API_KEY_MEDIASTACK = process.env.REACT_APP_MEDIASTACK;
 
 const API_URL_NEWSAPI = 'https://newsapi.org/v2/';
-const API_URL_MEDIASTACK = 'https://api.mediastack.com/v1/news/';
+// const API_URL_MEDIASTACK = 'https://api.mediastack.com/v1/news/';
 const API_URL_REPUBLIKA = 'https://berita-indo-api.vercel.app/v1/republika-news/';
 const API_URL_OKEZONE = 'https://berita-indo-api.vercel.app/v1/okezone-news/';
 const API_URL_CNN = 'https://berita-indo-api.vercel.app/v1/cnn-news/';

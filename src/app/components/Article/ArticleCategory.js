@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Navigate, useSearchParams } from 'react-router-dom';
 import ArticleService from '../../services/article.service';
-import Article from './Article';
+import Article from './ArticleCard';
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 
@@ -40,7 +40,7 @@ export default function ArticleCategory() {
             console.log(error);
          }
       })();
-   }, [searchParams])
+   }, [])
 
    if (!query) {
       return <Navigate to="/" />;

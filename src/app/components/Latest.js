@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import ArticleService from '../services/article.service'
-import Article from './Article/Article'
+import Article from './Article/ArticleCard'
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
+import { useSelector } from 'react-redux'
 
 const SkeletonHolder = () => {
    return (
@@ -32,7 +33,9 @@ const SkeletonHolder = () => {
 export default function Latest() {
 
    const [articles, setArticles] = useState([])
-   const [isLoaded, setIsLoaded] = useState(false)
+   // const { article } = useSelector((state) => state.article);
+
+   // console.log(article);
 
    useEffect(() => {
       const fetchData = async () => {
@@ -40,10 +43,8 @@ export default function Latest() {
             const response = await ArticleService.getNewsRepublika()
             //console.log(response.data.data);
             setArticles(response.data.data)
-            setIsLoaded(true)
          } catch (error) {
             console.log(error);
-            setIsLoaded(false)
          }
       }
       fetchData()
