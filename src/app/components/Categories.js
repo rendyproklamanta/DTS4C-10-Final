@@ -9,11 +9,11 @@ export default function Categories() {
          </div>
          <div className="position-relative overflow-hidden mb-3" style={{ height: 80 }}>
             <img className="img-fluid w-100 h-100" src="https://unsplash.it/300/300/?image=7" style={{ objectFit: 'cover' }} alt="img" />
-            <Link to="/category?q=business" className="overlay align-items-center justify-content-center h4 m-0 text-white text-decoration-none">Business</Link>
+            <Link to="/category?q=bisnis" className="overlay align-items-center justify-content-center h4 m-0 text-white text-decoration-none">Business</Link>
          </div>
          <div className="position-relative overflow-hidden mb-3" style={{ height: 80 }}>
             <img className="img-fluid w-100 h-100" src="https://unsplash.it/300/300/?image=8" style={{ objectFit: 'cover' }} alt="img" />
-            <Link to="/category?q=technology" className="overlay align-items-center justify-content-center h4 m-0 text-white text-decoration-none">Technology</Link>
+            <Link to="/category?q=tekno" className="overlay align-items-center justify-content-center h4 m-0 text-white text-decoration-none">Technology</Link>
          </div>
          <div className="position-relative overflow-hidden mb-3" style={{ height: 80 }}>
             <img className="img-fluid w-100 h-100" src="https://unsplash.it/300/300/?image=10" style={{ objectFit: 'cover' }} alt="img" />
@@ -21,7 +21,7 @@ export default function Categories() {
          </div>
          <div className="position-relative overflow-hidden" style={{ height: 80 }}>
             <img className="img-fluid w-100 h-100" src="https://unsplash.it/300/300/?image=11" style={{ objectFit: 'cover' }} alt="img" />
-            <Link to="/category?q=sports" className="overlay align-items-center justify-content-center h4 m-0 text-white text-decoration-none">Sports</Link>
+            <Link to="/category?q=sport" className="overlay align-items-center justify-content-center h4 m-0 text-white text-decoration-none">Sport</Link>
          </div>
       </div>
    )

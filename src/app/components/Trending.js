@@ -15,10 +15,10 @@ const SkeletonHolder = () => {
 const Article = ({ article }) => {
    return (
       <div className="d-flex mb-3">
-         <img src={article.urlToImage} alt={article.title} style={{ width: 100, height: 100, objectFit: 'cover' }} />
+         <img src={article.image.small} alt={article.title} style={{ width: 100, height: 100, objectFit: 'cover' }} />
          <div className="w-100 d-flex flex-column justify-content-center bg-light px-3" style={{ height: 100 }}>
             <div className="mb-1" style={{ fontSize: 13 }}>
-               <strong>{article.source.name}</strong>
+               <strong>{article.categories}</strong>
             </div>
             <Link to="" className='h6 m-0 text-break text-break-line-2'>{article.title}</Link>
          </div>
@@ -33,8 +33,8 @@ export default function Trending() {
    useEffect(() => {
       (async () => {
          try {
-            const response = await ArticleService.getTopArticles()
-            setArticles(response.data.articles)
+            const response = await ArticleService.getNewsCnbc()
+            setArticles(response.data.data)
          } catch (error) {
             console.log(error);
          }

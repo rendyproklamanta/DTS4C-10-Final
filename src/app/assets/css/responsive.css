@@ -16,4 +16,10 @@
   .search-width {
     width: 100%;
   }
+  .article-img {
+    height: 150px;
+  }
+  .article-overlay {
+    padding: 10px;
+  }
 }

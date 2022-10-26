@@ -8,6 +8,7 @@ import Categories from './Categories';
 import ArticleService from '../services/article.service';
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
+import { Link } from 'react-router-dom';
 
 const SkeletonHolder = () => {
    return (
@@ -20,12 +21,12 @@ const SkeletonHolder = () => {
 const Article = ({ article }) => {
    return (
       <div className="position-relative overflow-hidden" style={{ height: 435 }}>
-         <img className="img-fluid h-100" src={article.urlToImage} style={{ objectFit: 'cover' }} alt="" />
+         <img className="img-fluid h-100" src={article.image.large} style={{ objectFit: 'cover' }} alt="" />
          <div className="overlay">
-            <strong className="mb-1 text-danger">{article.source.name}</strong>
-            <a className="h2 m-0 text-white font-weight-bold text-break text-break-line-2" href>{article.title}</a>
+            <strong className="mb-1 text-danger">{article.categories}</strong>
+            <Link to="/detail" className="h2 m-0 text-white font-weight-bold text-break text-break-line-2" href>{article.title}</Link>
          </div>
-      </div>
+      </div >
    )
 }
 
@@ -36,9 +37,9 @@ export default function Hero() {
    useEffect(() => {
       (async () => {
          try {
-            const response = await ArticleService.getTopArticles()
-            //console.log(response.data.articles);
-            setArticles(response.data.articles)
+            const response = await ArticleService.getNewsOkezone()
+            //console.log(response.data.data);
+            setArticles(response.data.data)
          } catch (error) {
             console.log(error);
          }

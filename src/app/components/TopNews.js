@@ -6,6 +6,7 @@ import { options3 } from '../components/CarouselOptions';
 import ArticleService from '../services/article.service';
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
+import { Link } from 'react-router-dom';
 
 const SkeletonHolder = () => {
    return (
@@ -18,9 +19,9 @@ const SkeletonHolder = () => {
 const Article = ({ article }) => {
    return (
       <div className="d-flex">
-         <img src={article.urlToImage} style={{ width: 80, height: 80, objectFit: 'cover' }} alt={article.title} />
+         <img src={article.image.small} style={{ width: 80, height: 80, objectFit: 'cover' }} alt={article.title} />
          <div className="d-flex align-items-center bg-light px-3" style={{ height: 80 }}>
-            <a className="text-secondary font-weight-semi-bold text-break text-break-line-2" href>{article.title}</a>
+            <Link to="/detail" className="text-secondary font-weight-semi-bold text-break text-break-line-2" href>{article.title}</Link>
          </div>
       </div>
    )
@@ -33,9 +34,9 @@ export default function TopNews() {
    useEffect(() => {
       (async () => {
          try {
-            const response = await ArticleService.getTopArticles()
-            //console.log(response.data.articles);
-            setArticles(response.data.articles)
+            const response = await ArticleService.getNewsCnn()
+            console.log(response.data.data);
+            setArticles(response.data.data)
          } catch (error) {
             console.log(error);
          }

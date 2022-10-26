@@ -29,14 +29,13 @@ export default function ArticleCategory() {
 
    const [searchParams] = useSearchParams();
    const query = searchParams.get('q');
-   //console.log(query);
 
    useEffect(() => {
       (async () => {
          try {
-            const response = await ArticleService.getCategoryArticles(query)
+            const response = await ArticleService.getNewsSuara(query)
             //console.log(response.data);
-            setArticles(response.data.articles)
+            setArticles(response.data.data)
          } catch (error) {
             console.log(error);
          }
@@ -51,13 +50,13 @@ export default function ArticleCategory() {
       <div className="row mt-4">
          <div className="col-12">
             <div className="d-flex align-items-center justify-content-between bg-light py-2 px-4 mb-3">
-               <h3 className="m-0">Category : {query} | Total Result Found : {articles.length}</h3>
+               <h4 className="m-0">Category : {query} | Total Result Found : {articles.length}</h4>
             </div>
          </div>
          {
             articles.length ?
                articles.map((article, i) => (
-                  <Article article={article} key={i} classes="col-lg-3" />
+                  <Article article={article} key={i} classes="col-lg-3 col-6" />
                )) : <SkeletonHolder />
          }
       </div>

@@ -28,9 +28,9 @@ export default function Latest() {
    useEffect(() => {
       const fetchData = async () => {
          try {
-            const response = await ArticleService.getTopArticles()
-            console.log(response.data);
-            setArticles(response.data.articles)
+            const response = await ArticleService.getNewsRepublika()
+            //console.log(response.data.data);
+            setArticles(response.data.data)
             setIsLoaded(true)
          } catch (error) {
             console.log(error);
