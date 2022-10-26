@@ -37,7 +37,8 @@ export default function Hero() {
    useEffect(() => {
       (async () => {
          try {
-            const response = await ArticleService.getNewsOkezone()
+            // const response = await ArticleService.getNewsOkezone()
+            const response = await ArticleService.getNewsCnbc()
             //console.log(response.data.data);
             setArticles(response.data.data)
          } catch (error) {

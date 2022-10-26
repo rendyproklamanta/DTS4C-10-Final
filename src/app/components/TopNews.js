@@ -34,7 +34,8 @@ export default function TopNews() {
    useEffect(() => {
       (async () => {
          try {
-            const response = await ArticleService.getNewsCnn()
+            // const response = await ArticleService.getNewsCnn()
+            const response = await ArticleService.getNewsRepublika()
             //console.log(response.data.data);
             setArticles(response.data.data)
          } catch (error) {

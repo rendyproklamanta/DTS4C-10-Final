@@ -34,9 +34,9 @@ export default function ArticleList() {
    useEffect(() => {
       (async () => {
          try {
-            const response = await ArticleService.getSearchArticles(query)
-            console.log(response.data);
-            setArticles(response.data.articles)
+            const response = await ArticleService.getNewsSuara(query)
+            //console.log(response.data);
+            setArticles(response.data.data)
          } catch (error) {
             console.log(error);
          }
