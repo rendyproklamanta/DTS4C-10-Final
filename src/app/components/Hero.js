@@ -47,7 +47,7 @@ export default function Hero() {
    }, [])
 
    return (
-      <Row className='pt-3 pb-4'>
+      <Row className='pt-1 pb-2'>
          <div className="col-lg-8 mb-3">
             {articles.length ? (
                <OwlCarousel className="position-relative" {...options1}>

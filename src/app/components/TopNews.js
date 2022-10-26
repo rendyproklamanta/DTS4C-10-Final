@@ -11,7 +11,17 @@ import { Link } from 'react-router-dom';
 const SkeletonHolder = () => {
    return (
       <>
-         <Skeleton count={1} width="100%" height='75px' baseColor='#eeacac' />
+         <div className='row mt-4'>
+            <div className='col-lg-4'>
+               <Skeleton count={1} width="100%" height='75px' baseColor='#eeacac' />
+            </div>
+            <div className='col-lg-4 d-none d-lg-block'>
+               <Skeleton count={1} width="100%" height='75px' baseColor='#eeacac' />
+            </div>
+            <div className='col-lg-4 d-none d-lg-block'>
+               <Skeleton count={1} width="100%" height='75px' baseColor='#eeacac' />
+            </div>
+         </div>
       </>
    )
 }
@@ -34,8 +44,7 @@ export default function TopNews() {
    useEffect(() => {
       (async () => {
          try {
-            // const response = await ArticleService.getNewsCnn()
-            const response = await ArticleService.getNewsRepublika()
+            const response = await ArticleService.getNewsCnn()
             //console.log(response.data.data);
             setArticles(response.data.data)
          } catch (error) {

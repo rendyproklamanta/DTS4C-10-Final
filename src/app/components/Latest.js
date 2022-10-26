@@ -7,14 +7,23 @@ import 'react-loading-skeleton/dist/skeleton.css'
 const SkeletonHolder = () => {
    return (
       <>
-         <div className="col-4">
-            <Skeleton count={2} width="100%" height='200px' baseColor='#eeacac' />
+         <div className="col-4 mb-2">
+            <Skeleton count={2} width="100%" height='180px' baseColor='#eeacac' />
          </div>
-         <div className="col-4">
-            <Skeleton count={2} width="100%" height='200px' baseColor='#eeacac' />
+         <div className="col-4 mb-2">
+            <Skeleton count={2} width="100%" height='180px' baseColor='#eeacac' />
          </div>
-         <div className="col-4">
-            <Skeleton count={2} width="100%" height='200px' baseColor='#eeacac' />
+         <div className="col-4 mb-2">
+            <Skeleton count={2} width="100%" height='180px' baseColor='#eeacac' />
+         </div>
+         <div className="col-4 mb-2">
+            <Skeleton count={2} width="100%" height='180px' baseColor='#eeacac' />
+         </div>
+         <div className="col-4 mb-2">
+            <Skeleton count={2} width="100%" height='180px' baseColor='#eeacac' />
+         </div>
+         <div className="col-4 mb-2">
+            <Skeleton count={2} width="100%" height='180px' baseColor='#eeacac' />
          </div>
       </>
    )

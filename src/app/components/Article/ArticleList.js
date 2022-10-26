@@ -51,13 +51,13 @@ export default function ArticleList() {
       <div className="row mt-4">
          <div className="col-12">
             <div className="d-flex align-items-center justify-content-between bg-light py-2 px-4 mb-3">
-               <h3 className="m-0">Keyword: {query} | Total Result Found : {articles.length}</h3>
+               <h4 className="m-0">Keyword: {query} | Total Result Found : {articles.length}</h4>
             </div>
          </div>
          {
             articles.length ?
                articles.map((article, i) => (
-                  <Article article={article} key={i} classes="col-lg-3" />
+                  <Article article={article} key={i} classes="col-lg-3 col-6" />
                )) : <SkeletonHolder />
          }
       </div>
