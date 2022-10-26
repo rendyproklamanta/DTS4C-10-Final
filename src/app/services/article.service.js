@@ -15,11 +15,15 @@ const getSearchArticles = (query) => {
    return axios.get(API_URL + `everything?q=${query}&apiKey=${API_KEY}&pageSize=12`);
 };
 
+const getCategoryArticles = (query) => {
+   return axios.get(API_URL + `top-headlines?category=${query}&apiKey=${API_KEY}&pageSize=12&country=id`);
+};
 
 const ArticleService = {
    getAllArticles,
    getTopArticles,
-   getSearchArticles
+   getSearchArticles,
+   getCategoryArticles,
 }
 
 export default ArticleService;

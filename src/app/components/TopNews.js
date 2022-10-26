@@ -4,6 +4,16 @@ import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import { options3 } from '../components/CarouselOptions';
 import ArticleService from '../services/article.service';
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
+
+const SkeletonHolder = () => {
+   return (
+      <>
+         <Skeleton count={1} width="100%" height='75px' baseColor='#eeacac' />
+      </>
+   )
+}
 
 const Article = ({ article }) => {
    return (
@@ -38,7 +48,7 @@ export default function TopNews() {
             articles.length ?
                articles.slice(0, 5).map((article, i) => (
                   <Article article={article} key={i} />
-               )) : null
+               )) : <SkeletonHolder />
          }
       </OwlCarousel>
    )

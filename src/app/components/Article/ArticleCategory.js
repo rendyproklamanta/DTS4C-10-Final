@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import ArticleService from '../services/article.service'
-import Article from './Article/Article'
+import { Navigate, useSearchParams } from 'react-router-dom';
+import ArticleService from '../../services/article.service';
+import Article from './Article';
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 
@@ -19,45 +20,43 @@ const SkeletonHolder = () => {
       </>
    )
 }
+export default function ArticleCategory() {
 
-export default function Latest() {
+   const [articles, setArticles] = useState([]);
 
-   const [articles, setArticles] = useState([])
-   const [isLoaded, setIsLoaded] = useState(false)
+   const [searchParams] = useSearchParams();
+   const query = searchParams.get('q');
+   //console.log(query);
 
    useEffect(() => {
-      const fetchData = async () => {
+      (async () => {
          try {
-            const response = await ArticleService.getTopArticles()
-            console.log(response.data);
+            const response = await ArticleService.getCategoryArticles(query)
+            //console.log(response.data);
             setArticles(response.data.articles)
-            setIsLoaded(true)
          } catch (error) {
             console.log(error);
-            setIsLoaded(false)
          }
-      }
-      fetchData()
-   }, [])
+      })();
+   }, [searchParams])
 
+   if (!query) {
+      return <Navigate to="/" />;
+   }
 
    return (
-
-      <div className="row">
+      <div className="row mt-4">
          <div className="col-12">
             <div className="d-flex align-items-center justify-content-between bg-light py-2 px-4 mb-3">
-               <h3 className="m-0">Latest News</h3>
-
+               <h3 className="m-0">Total Result Found : {articles.length}</h3>
             </div>
          </div>
          {
             articles.length ?
-               articles.slice(0, 6).map((article, i) => (
-                  <Article article={article} key={i} classes="col-lg-4" />
+               articles.map((article, i) => (
+                  <Article article={article} key={i} classes="col-lg-3" />
                )) : <SkeletonHolder />
          }
-
       </div>
-
    )
 }

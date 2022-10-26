@@ -15,6 +15,8 @@ import "./app/assets/css/responsive.css";
 import 'font-awesome/css/font-awesome.min.css';
 import Dashboard from "./app/pages/Dashboard";
 import ArticleDetail from "./app/components/Article/ArticleDetail";
+import ArticleList from "./app/components/Article/ArticleList";
+import ArticleCategory from "./app/components/Article/ArticleCategory";
 
 const App = () => {
 
@@ -32,6 +34,8 @@ const App = () => {
                      <Route path="/profile" element={<Profile />} />
                      <Route path="/dashboard" element={<Dashboard />} />
                      <Route path="/detail" element={<ArticleDetail />} />
+                     <Route path="/search" element={<ArticleList />} />
+                     <Route path="/category" element={<ArticleCategory />} />
                      <Route path="*" element={<h1 style={{ textAlign: 'center', marginTop: 200 }}>404 Not Found</h1>} />
                   </Routes>
                </div>
