@@ -45,13 +45,16 @@ export default function TopNews() {
    }, [])
 
    return (
-      <OwlCarousel className="py-4 position-relative" {...options3}>
-         {
-            articles.length ?
-               articles.slice(0, 6).map((article, i) => (
-                  <Article article={article} key={i} />
-               )) : <SkeletonHolder />
-         }
-      </OwlCarousel>
+      <>
+         {articles.length ? (
+            <OwlCarousel className="py-4 position-relative" {...options3}>
+               {
+                  articles.slice(0, 6).map((article, i) => (
+                     <Article article={article} key={i} />
+                  ))
+               }
+            </OwlCarousel>
+         ) : <SkeletonHolder />}
+      </>
    )
 }

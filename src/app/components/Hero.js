@@ -51,14 +51,15 @@ export default function Hero() {
    return (
       <Row className='pt-3 pb-4'>
          <div className="col-lg-8 mb-3">
-            <OwlCarousel className="position-relative" {...options1}>
-               {
-                  articles.length ?
+            {articles.length ? (
+               <OwlCarousel className="position-relative" {...options1}>
+                  {
                      articles.slice(0, 5).map((article, i) => (
                         <Article article={article} key={i} />
-                     )) : <SkeletonHolder />
-               }
-            </OwlCarousel>
+                     ))
+                  }
+               </OwlCarousel>
+            ) : <SkeletonHolder />}
          </div>
 
          <Categories />
