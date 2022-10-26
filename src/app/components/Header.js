@@ -8,6 +8,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 import { logout } from "../slices/auth";
+import ArticleSearch from './Article/ArticleSearch';
 
 function Header() {
 
@@ -84,15 +85,7 @@ function Header() {
                      }
                   </Nav>
 
-                  <Form className="d-flex ml-auto">
-                     <Form.Control
-                        type="search"
-                        placeholder="Search"
-                        className="me-2 search-width"
-                        aria-label="Search"
-                     />
-                     <Button variant="outline-success"><i className="fa fa-search" /></Button>
-                  </Form>
+                  <ArticleSearch />
                </Navbar.Collapse>
             </Container>
          </Navbar>

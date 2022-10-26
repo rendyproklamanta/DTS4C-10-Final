@@ -1,6 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import ArticleService from '../services/article.service'
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
+
+const SkeletonHolder = () => {
+   return (
+      <>
+         <Skeleton count={4} width="100%" height='80px' baseColor='#eeacac' />
+      </>
+   )
+}
 
 const Article = ({ article }) => {
    return (
@@ -41,7 +51,7 @@ export default function Trending() {
             articles.length ?
                articles.slice(0, 4).map((article, i) => (
                   <Article article={article} key={i} />
-               )) : null
+               )) : <SkeletonHolder />
          }
 
       </div>
