@@ -3,7 +3,6 @@ import ArticleService from '../services/article.service'
 import Article from './Article/ArticleCard'
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
-import { useSelector } from 'react-redux'
 
 const SkeletonHolder = () => {
    return (
