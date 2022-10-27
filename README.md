@@ -2,6 +2,8 @@
 
 Live web : https://dts4c-10-final.vercel.app
 
+Documentation.gif : https://github.com/rendyproklamanta/DTS4C-10-Final/blob/master/Doc.gif
+
 ![](https://github.com/rendyproklamanta/DTS4C-10-Final/blob/master/Doc.gif)
 
 Features :
